@@ -1,17 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+import { StackNavigator } from 'react-navigation';
+
+import Home from './routes/Home';
+import Login from './routes/Login';
+import Plan from './routes/Plan';
+import Welcome from './routes/Welcome';
+
+const BasicApp = StackNavigator({
+  Main: {screen: Welcome},
+  Login: {screen: Login},
+  Plan: {screen: Plan},
+  Home: {screen: Home}
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -21,3 +23,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+export default BasicApp
