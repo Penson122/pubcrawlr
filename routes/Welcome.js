@@ -48,9 +48,9 @@ class Welcome extends React.Component {
           }
         />
         <Button
-          title="Plan"
+          title="Overview"
           onPress={() =>
-            navigate('Plan')
+            navigate('Overview')
           }
         />
       </View>
