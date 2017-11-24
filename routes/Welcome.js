@@ -24,6 +24,12 @@ class Welcome extends React.Component {
           color='#3b5998'
         />
         <Button
+          title="Plan"
+          onPress={() =>
+            navigate('Plan')
+          }
+        />
+        <Button
           title="Overview"
           onPress={() =>
             navigate('Overview')
