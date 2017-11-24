@@ -19,28 +19,9 @@ class Welcome extends React.Component {
         <Button
           title="Login with Facebook"
           onPress={() =>
-            navigate('Login')
-          }
-          color='#3b5998'
-        />
-        <Button
-          title="Your Crawls"
-          color='white'
-          onPress = {() =>
             navigate('Home')
           }
-        />
-        <Button
-          title="Plan"
-          onPress={() =>
-            navigate('Plan')
-          }
-        />
-        <Button
-          title="Plan"
-          onPress={() =>
-            navigate('Plan')
-          }
+          color='#3b5998'
         />
       </View>
     )
