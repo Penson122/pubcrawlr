@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { FormLabel, FormInput, Card, Button } from 'react-native-elements';
-import { Slider } from 'react-native-elements';
+import { Text } from 'react-native';
+import { FormInput, Card, Button } from 'react-native-elements';
 
 class Planner extends React.Component {
   render() {
