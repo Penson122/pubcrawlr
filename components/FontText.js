@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, Platform } from 'react-native';
 import { Font } from 'expo';
 import ProximaNovaBold from '../fonts/proximaNovaBold.otf';
+import ProximaNova from '../fonts/proximaNovaRegular.otf';
 
 export default class FontText extends React.Component {
   state = {
@@ -11,9 +12,15 @@ export default class FontText extends React.Component {
   };
 
   async componentDidMount() {
-    await Font.loadAsync({'proxima-nova-bold': ProximaNovaBold});
+    const fontFamily = this.props.bold ? 'proxima-nova-bold' : 'proxima-nova';
 
-    this.setState({font: {fontFamily: 'proxima-nova-bold'}});
+    if (this.props.bold) {
+      await Font.loadAsync({'proxima-nova-bold': ProximaNovaBold});
+    } else {
+      await Font.loadAsync({'proxima-nova': ProximaNova});
+    }
+
+    this.setState({font: {fontFamily: fontFamily}});
   }
 
   render() {

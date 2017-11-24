@@ -1,8 +1,14 @@
 import React from 'react';
+<<<<<<< HEAD
 import { Text, StyleSheet, View, Modal, ScrollView, TouchableOpacity } from 'react-native';
 import { FormInput, Card, Button, Slider, CheckBox } from 'react-native-elements';
 import { getPubs, norwichLatLng } from '../routes/RouteSelection';
 import {GOOGLE_MAPS_API_KEY} from '../constants';
+=======
+import { Text, StyleSheet, View } from 'react-native';
+import { FormInput, Card, Button, Slider, CheckBox } from 'react-native-elements';
+
+>>>>>>> 4b43f95f07274bf9f9f2a9c58e670ba1d3a18573
 const styles = StyleSheet.create({
   text: {
     paddingLeft: 20,
@@ -12,6 +18,7 @@ const styles = StyleSheet.create({
 class Planner extends React.Component {
   constructor(props) {
     super(props)
+<<<<<<< HEAD
     this.state = {
       maxDistance: 500,
       people: 10,
@@ -52,6 +59,9 @@ class Planner extends React.Component {
       clubs: this.state.clubs,
       startLocation: startLocation
     });
+=======
+    this.state = { maxDistance: 3, people: 10, bars: true, clubs: false }
+>>>>>>> 4b43f95f07274bf9f9f2a9c58e670ba1d3a18573
   }
   render() {
     function someFunction(){
@@ -77,18 +87,34 @@ class Planner extends React.Component {
           <FormInput onChangeText={someFunction}/>
           <Text>{"\n"}</Text>
 
+<<<<<<< HEAD
+=======
+          <Text h3 style={styles.text}>Starting destination: </Text>
+          <FormInput onChangeText={someFunction}/>
+          <Text>{"\n"}</Text>
+
+>>>>>>> 4b43f95f07274bf9f9f2a9c58e670ba1d3a18573
           <Text h3 style={styles.text}>Max walking distance: </Text>
           <View style={styles.text}>
             <Slider
               style={{width: 300}}
               step={1}
+<<<<<<< HEAD
               minimumValue={350}
               maximumValue={1000}
+=======
+              minimumValue={1}
+              maximumValue={5}
+>>>>>>> 4b43f95f07274bf9f9f2a9c58e670ba1d3a18573
               value={this.state.maxDistance}
               onValueChange={val => this.setState({ maxDistance: val })}
             />
           </View>
+<<<<<<< HEAD
           <Text style={styles.text}>{this.state.maxDistance} meters</Text>
+=======
+          <Text style={styles.text}>{this.state.maxDistance} miles</Text>
+>>>>>>> 4b43f95f07274bf9f9f2a9c58e670ba1d3a18573
           <Text>{"\n"}</Text>
 
           <Text h3 style={styles.text}>Filter: </Text>
@@ -96,6 +122,7 @@ class Planner extends React.Component {
           <CheckBox center title='Clubs' checkedIcon='dot-circle-o' uncheckedIcon='circle-o' checked={this.state.clubs}  />
           <Text>{"\n"}</Text>
 
+<<<<<<< HEAD
           <Button
             title='Select Start Location'
             onPress={() => this.viewModal(true)}
@@ -103,11 +130,15 @@ class Planner extends React.Component {
           <SelectStartLocation bars={this.state.barResults} visible={this.state.modalVisible} onClose={this.viewModal}/>
           {this.state.startLocation ? <Text h3 style={styles.text}>{this.state.startLocation.name}</Text> : null}
           {this.state.startLocation ? <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Find my route!' onPress={this.done} /> : null}
+=======
+          <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Find my route!' />
+>>>>>>> 4b43f95f07274bf9f9f2a9c58e670ba1d3a18573
       </Card>
     );
   }
 }
 
+<<<<<<< HEAD
 const SelectStartLocation = ({ bars, visible, onClose }) => {
   const barText = bars.map((b, i) => {
     return (
@@ -134,3 +165,6 @@ const SelectStartLocation = ({ bars, visible, onClose }) => {
 }
 
 export default Planner;
+=======
+export default Planner;
+>>>>>>> 4b43f95f07274bf9f9f2a9c58e670ba1d3a18573

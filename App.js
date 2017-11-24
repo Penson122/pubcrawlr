@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, Image } from 'react-native';
 
 import { StackNavigator } from 'react-navigation';
-
+import HeaderImage from './img/pubcrawlr.png';
 import Home from './routes/Home';
 import Login from './routes/Login';
 import Plan from './routes/Plan';
@@ -17,7 +17,9 @@ const BasicApp = StackNavigator({
   Router: {screen: RouteSelection}
 }, {
   navigationOptions: {
-    headerTintColor: '#388E44'
+    headerTintColor: '#388E44',
+    headerRight: <Image source={HeaderImage} style={{height: 20, width: 114}}/>,
+    headerStyle: {paddingRight: 20}
   }
 });
 
