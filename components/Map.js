@@ -24,16 +24,29 @@ class Map extends React.Component {
           initialRegion={{
             latitude: this.state.initialRegion.latitude,
             longitude: this.state.initialRegion.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.02,
+            longitudeDelta: 0.02,
           }}
         >
+        {this.props.startLocation
+          ? <MapView.Marker
+            coordinate={this.props.startLocation.location}
+            pinColor={this.props.startLocation.color ? this.props.startLocation.color : 'green'}
+            >
+              <Tooltip
+                name={this.props.startLocation.name}
+                description={this.props.startLocation.description}
+                onPress={() => this.props.onMarkerPress(this.props.startLocation.location)}
+              />
+            </MapView.Marker>
+          : null}
         {this.props.markers.map((marker, i) => {
           return (
           <MapView.Marker key={i}
             coordinate={marker.location}
+            pinColor={marker.color ? marker.color : 'green'}
           >
-            <Tooltip name={marker.name} description={marker.description} addButton={this.props.addButton} onPress={() => this.props.onMarkerPress(marker.location)}/>
+            <Tooltip name={marker.name} description={marker.description} addButton={this.props.addButton} onPress={() => this.props.onMarkerPress(marker)}/>
           </MapView.Marker>);
         })}
           <MapView.Polyline coordinates={this.props.polylines}/>
@@ -48,14 +61,14 @@ class Map extends React.Component {
 
 const Tooltip = ({name, description, onPress, addButton}) => {
   return (
-    <MapView.Callout>
+    <MapView.Callout style={{zIndex: 100}}>
     <View>
       <View>
         <Text>{name}</Text>
       </View>
       <Text>{description}</Text>
       <View>
-        {addButton === true ? <ActionButton size={15} color='green' onPress={onPress} /> : null}
+        {addButton === true ? <ActionButton size={18} color='green' onPress={onPress} /> : null}
       </View>
     </View>
     </MapView.Callout>

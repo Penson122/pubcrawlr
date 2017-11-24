@@ -25,34 +25,9 @@ class Welcome extends React.Component {
         />
         <Button
           title="Your Crawls"
+          color='white'
           onPress = {() =>
             navigate('Home')
-          }
-        />
-        <Button
-          title="Map"
-          style={{marginTop: '2em'}}
-          onPress={() =>
-            navigate('Router')
-          }
-        />
-        <Button
-          title="Home"
-          style={{marginTop: '2em'}}
-          onPress={() =>
-            navigate('Home')
-          }
-        />
-        <Button
-          title="Plan"
-          onPress={() =>
-            navigate('Plan')
-          }
-        />
-        <Button
-          title="Plan"
-          onPress={() =>
-            navigate('Plan')
           }
         />
       </View>
