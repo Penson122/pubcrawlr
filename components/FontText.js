@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, Platform } from 'react-native';
 import { Font } from 'expo';
 import ProximaNovaBold from '../fonts/proximaNovaBold.otf';
 import ProximaNova from '../fonts/proximaNova.otf';
@@ -7,7 +7,7 @@ import ProximaNova from '../fonts/proximaNova.otf';
 export default class FontText extends React.Component {
   state = {
     font: {
-      fontFamily: 'sans-serif'
+      fontFamily: Platform.OS === 'ios' ? 'Helvetica' : 'sans-serif'
     }
   };
 
@@ -23,7 +23,7 @@ export default class FontText extends React.Component {
     this.setState({font: {fontFamily: fontFamily}});
   }
 
-  render() {    
+  render() {
     return (
       <Text style={[this.props.style, this.state.font]}>{this.props.children}</Text>
     )

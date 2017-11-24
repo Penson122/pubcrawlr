@@ -8,8 +8,6 @@ import Map from '../components/Map';
 
 const norwichLatLng = {latitude: 52.630886, longitude: 1.297355};
 
-const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + norwichLatLng.latitude + ',' + norwichLatLng.longitude + '&radius=500&type=bar&key=' + GOOGLE_MAPS_API_KEY;
-
 const getPubs = (url) => {
   return fetch(url)
     .then((response) => response.json())
@@ -28,9 +26,12 @@ class RouteSelection extends React.Component {
   };
   constructor(props){
     super(props);
+    const radius = this.props.radius ? this.props.radius : 500;
+    const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + norwichLatLng.latitude + ',' + norwichLatLng.longitude + '&radius=' + radius + '&type=bar&key=' + GOOGLE_MAPS_API_KEY;
     this.state = {
       markers: [],
-      selectedMarkers: []
+      selectedMarkers: [],
+      url: url
     }
     this.onMarkerPress = this.onMarkerPress.bind(this);
     this.onDone = this.onDone.bind(this);
@@ -47,7 +48,7 @@ class RouteSelection extends React.Component {
     console.log('done');
   }
   componentDidMount(){
-    getPubs(url).then(res => {
+    getPubs(this.state.url).then(res => {
       const bars = res.results.map(item => (
         {
           location: {
@@ -63,7 +64,14 @@ class RouteSelection extends React.Component {
   render(){
     const { navigate } = this.props.navigation;
     return (
-      <Map initialRegion={norwichLatLng} markers={this.state.markers} onMarkerPress={this.onMarkerPress} onDone={this.onDone} polylines={this.state.selectedMarkers}/>
+      <Map
+        addButton={true}
+        initialRegion={norwichLatLng}
+        markers={this.state.markers}
+        onMarkerPress={this.onMarkerPress}
+        onDone={this.onDone}
+        polylines={this.state.selectedMarkers}
+      />
     )
   }
 };

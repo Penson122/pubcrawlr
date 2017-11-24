@@ -43,6 +43,18 @@ class Welcome extends React.Component {
             navigate('Home')
           }
         />
+        <Button
+          title="Plan"
+          onPress={() =>
+            navigate('Plan')
+          }
+        />
+        <Button
+          title="Plan"
+          onPress={() =>
+            navigate('Plan')
+          }
+        />
       </View>
     )
   }

@@ -33,20 +33,20 @@ class Map extends React.Component {
           <MapView.Marker key={i}
             coordinate={marker.location}
           >
-            <Tooltip name={marker.name} description={marker.description} onPress={() => this.props.onMarkerPress(marker.location)}/>
+            <Tooltip name={marker.name} description={marker.description} addButton={this.props.addButton} onPress={() => this.props.onMarkerPress(marker.location)}/>
           </MapView.Marker>);
         })}
           <MapView.Polyline coordinates={this.props.polylines}/>
         </MapView>
         <View style={styles.button}>
-        <Button title='Done' onPress={this.props.onDone}/>
+        { this.props.onDone ? <Button title='Done' onPress={this.props.onDone}/> : null}
         </View>
       </View>
     )
   }
 }
 
-const Tooltip = ({name, description, onPress}) => {
+const Tooltip = ({name, description, onPress, addButton}) => {
   return (
     <MapView.Callout>
     <View>
@@ -55,7 +55,7 @@ const Tooltip = ({name, description, onPress}) => {
       </View>
       <Text>{description}</Text>
       <View>
-        <ActionButton size={15} color='green' onPress={onPress} />
+        {addButton === true ? <ActionButton size={15} color='green' onPress={onPress} /> : null}
       </View>
     </View>
     </MapView.Callout>
