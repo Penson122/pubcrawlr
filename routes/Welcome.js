@@ -17,6 +17,12 @@ class Welcome extends React.Component {
             navigate('Login')
           }
         />
+        <Button
+          title="Plan"
+          onPress={() =>
+            navigate('Plan')
+          }
+        />
       </View>
     )
   }
