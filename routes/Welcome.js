@@ -19,11 +19,11 @@ class Welcome extends React.Component {
         <Button
           title="Login with Facebook"
           onPress={() =>
-            navigate('Login')
+            navigate('Home')
           }
           color='#3b5998'
         />
-        <Button
+        {/* <Button
           title="Your Crawls"
           onPress = {() => 
             navigate('Home')
@@ -48,13 +48,7 @@ class Welcome extends React.Component {
           onPress={() =>
             navigate('Plan')
           }
-        />
-        <Button
-          title="Plan"
-          onPress={() =>
-            navigate('Plan')
-          }
-        />
+        /> */}
       </View>
     )
   }
