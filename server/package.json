@@ -1,0 +1,13 @@
+{
+  "name": "pubcrawler-api",
+  "version": "1.0.0",
+  "description": "API for PubCrawler",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev:start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jack penson, ben mansley, samphire reeves",
+  "license": "ISC"
+}

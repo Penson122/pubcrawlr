@@ -17,6 +17,20 @@ class Welcome extends React.Component {
             navigate('Login')
           }
         />
+        <Button
+          title="Map"
+          style={{marginTop: '2em'}}
+          onPress={() =>
+            navigate('Router')
+          }
+        />
+        <Button
+          title="Home"
+          style={{marginTop: '2em'}}
+          onPress={() =>
+            navigate('Home')
+          }
+        />
       </View>
     )
   }
