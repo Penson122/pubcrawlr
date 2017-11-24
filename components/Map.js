@@ -5,13 +5,22 @@ import { StyleSheet } from 'react-native'
 import { MapView } from 'expo';
 
 class Map extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      initialRegion: {
+        latitude: props.initialRegion.latitude,
+        longitude: props.initialRegion.longitude
+      }
+    }
+  }
   render(){
     return (
       <MapView
         style={{ flex: 1 }}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: this.state.initialRegion.latitude,
+          longitude: this.state.initialRegion.longitude,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}

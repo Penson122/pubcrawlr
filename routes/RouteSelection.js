@@ -10,7 +10,7 @@ class RouteSelection extends React.Component {
   render(){
     const { navigate } = this.props.navigation;
     return (
-        <Map></Map>
+        <Map initialRegion={{latitude: 52.630886, longitude: 1.297355}}/>
     )
   }
 };
