@@ -11,7 +11,16 @@ const styles = StyleSheet.create({
 class Planner extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { maxDistance: 3, people: 10, bars: true, clubs: false }
+    this.state = { maxDistance: 500, people: 10, bars: true, clubs: false }
+    this.done = this.done.bind(this);
+  }
+  done(){
+    this.props.onDone({
+      maxDistance: this.state.maxDistance,
+      people: this.state.people,
+      bars: this.state.bars,
+      clubs: this.state.clubs
+    });
   }
   render() {
     function someFunction(){
@@ -41,13 +50,13 @@ class Planner extends React.Component {
           <FormInput onChangeText={someFunction}/>
           <Text>{"\n"}</Text>
 
-          <Text h3 style={styles.text}>Max walking distance: </Text>
+          <Text h3 style={styles.text}>Max walking distance (Meters): </Text>
           <View style={styles.text}>
             <Slider
               style={{width: 300}}
               step={1}
-              minimumValue={1}
-              maximumValue={5}
+              minimumValue={200}
+              maximumValue={1000}
               value={this.state.maxDistance}
               onValueChange={val => this.setState({ maxDistance: val })}
             />
@@ -60,7 +69,7 @@ class Planner extends React.Component {
           <CheckBox center title='Clubs' checkedIcon='dot-circle-o' uncheckedIcon='circle-o' checked={this.state.clubs}  />
           <Text>{"\n"}</Text>
 
-          <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Find my route!' />
+          <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Find my route!' onPress={this.done} />
       </Card>
     );
   }

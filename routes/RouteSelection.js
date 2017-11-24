@@ -26,7 +26,11 @@ class RouteSelection extends React.Component {
   };
   constructor(props){
     super(props);
-    const radius = this.props.radius ? this.props.radius : 500;
+    const {state} = this.props.navigation;
+    const options = state.params.options;
+    console.log(options.maxDistance);
+    const radius = options.maxDistance ? options.maxDistance : 500;
+    console.log(radius);
     const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + norwichLatLng.latitude + ',' + norwichLatLng.longitude + '&radius=' + radius + '&type=bar&key=' + GOOGLE_MAPS_API_KEY;
     this.state = {
       markers: [],

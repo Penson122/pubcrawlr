@@ -5,7 +5,7 @@ import FontText from '../components/FontText';
 
 class Welcome extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'PubCrawlr',
   };
 
   render(){
@@ -23,7 +23,7 @@ class Welcome extends React.Component {
         />
         <Button
           title="Your Crawls"
-          onPress = {() => 
+          onPress = {() =>
             navigate('Home')
           }
         />
