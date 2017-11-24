@@ -13,6 +13,10 @@ const BasicApp = StackNavigator({
   Login: {screen: Login},
   Plan: {screen: Plan},
   Home: {screen: Home}
+}, {
+  navigationOptions: {
+    headerTintColor: '#388E44'
+  }
 });
 
 const styles = StyleSheet.create({
@@ -20,8 +24,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
+  title: {
+    color: '#388e44'
+  }
 });
 
 
