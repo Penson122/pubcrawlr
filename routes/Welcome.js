@@ -1,8 +1,6 @@
 import React from 'react';
 
 import { View, Text, Button, StyleSheet } from 'react-native';
-import { LoginButton } from 'react-native-fbsdk';
-import { FBLogin, FBLoginManager } from 'react-native-facebook-login';
 
 class Welcome extends React.Component {
   static navigationOptions = {
