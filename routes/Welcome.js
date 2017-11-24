@@ -23,7 +23,7 @@ class Welcome extends React.Component {
           }
           color='#3b5998'
         />
-        {/* <Button
+        <Button
           title="Your Crawls"
           onPress = {() => 
             navigate('Home')
@@ -48,7 +48,13 @@ class Welcome extends React.Component {
           onPress={() =>
             navigate('Plan')
           }
-        /> */}
+        />
+        <Button
+          title="Overview"
+          onPress={() =>
+            navigate('Overview')
+          }
+        />
       </View>
     )
   }
