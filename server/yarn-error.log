@@ -1,0 +1,44 @@
+Arguments: 
+  /usr/local/Cellar/node/8.1.2/bin/node /usr/local/bin/yarn add express
+
+PATH: 
+  /usr/local/opt/tcl-tk/bin:/usr/local/opt/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/Volumes/Development/go/bin:/opt/local/bin
+
+Yarn version: 
+  1.2.0
+
+Node version: 
+  8.1.2
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "name": "pubcrawler-api",
+    "version": "1.0.0",
+    "description": "API for PubCrawler",
+    "main": "server.js",
+    "scripts": {
+      "start": "node server.js",
+      "dev:start": nodemon server.js",
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "jack penson, ben mansley, samphire reeves",
+    "license": "ISC"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: /Volumes/Development/projects/pubcrawlr/server/package.json: Unexpected token o in JSON at position 178
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:770:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:92:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:103:13
+      at <anonymous>

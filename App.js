@@ -7,12 +7,14 @@ import Home from './routes/Home';
 import Login from './routes/Login';
 import Plan from './routes/Plan';
 import Welcome from './routes/Welcome';
+import RouteSelection from './routes/RouteSelection';
 
 const BasicApp = StackNavigator({
   Main: {screen: Welcome},
   Login: {screen: Login},
   Plan: {screen: Plan},
-  Home: {screen: Home}
+  Home: {screen: Home},
+  Router: {screen: RouteSelection}
 }, {
   navigationOptions: {
     headerTintColor: '#388E44'
