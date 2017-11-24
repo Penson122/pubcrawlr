@@ -8,13 +8,15 @@ import Login from './routes/Login';
 import Plan from './routes/Plan';
 import Welcome from './routes/Welcome';
 import RouteSelection from './routes/RouteSelection';
+import Overview from './routes/Overview';
 
 const BasicApp = StackNavigator({
   Main: {screen: Welcome},
   Login: {screen: Login},
   Plan: {screen: Plan},
   Home: {screen: Home},
-  Router: {screen: RouteSelection}
+  Router: {screen: RouteSelection},
+  Overview: {screen: Overview}
 }, {
   navigationOptions: {
     headerTintColor: '#388E44'
