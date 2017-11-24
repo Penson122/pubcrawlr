@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, Platform } from 'react-native';
 import { Font } from 'expo';
 import ProximaNovaBold from '../fonts/proximaNovaBold.otf';
-import ProximaNova from '../fonts/proximaNova.otf';
+import ProximaNova from '../fonts/proximaNovaRegular.otf';
 
 export default class FontText extends React.Component {
   state = {
