@@ -1,27 +1,32 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { Text, StyleSheet, View, TouchableHighlight } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import FontText from '../components/FontText';
 
-class RouteInfo extends React.Component {
-  render() {
+const RouteInfo = ({name, attendees, startDate, startTime, startLocation, endLocation, totalDistance}) => {
     return (
       <View>
       <View style={styles.container}>
-        <FontText style={styles.title}>{"Todd's Pub Crawl"}</FontText>
+        <FontText style={styles.title}>{name}</FontText>
       </View>
         <Card>
-          <Text h2>Attendees: </Text>
-          <Text h2>Date: </Text>
-          <Text h2>Start Time: </Text>
-          <Text h2>Start: </Text>
-          <Text h2>End: </Text>
-          <Text h2>Distance: </Text>
-          <Icon name='edit' />
+          <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+            <View>
+              <FontText style={{fontSize: 16}}>Attendees: <FontText bold>{attendees}</FontText></FontText>
+              <FontText style={{fontSize: 16}}>Date: <FontText bold>{startDate}</FontText></FontText>
+              <FontText style={{fontSize: 16}}>Start Time: <FontText bold>{startTime}</FontText></FontText>
+            </View>
+            <View>
+              <FontText style={{fontSize: 16}}>Start: <FontText bold>{startLocation}</FontText></FontText>
+              <FontText style={{fontSize: 16}}>End: <FontText bold>{endLocation}</FontText></FontText>
+              <FontText style={{fontSize: 16}}>Distance: <FontText bold>{totalDistance}</FontText></FontText>
+            </View>
+            {<View></View>}
+          </View>
+          <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end', paddingTop: 8}}><Icon name='edit'/></View>
         </Card>
       </View>
     );
-  }
 }
 
 export default RouteInfo;

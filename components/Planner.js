@@ -18,12 +18,14 @@ class Planner extends React.Component {
       bars: true,
       clubs: false,
       startLocation: undefined,
+      startTime: '',
       barResults: [],
       barNames: [],
       modalVisible: false
     }
     this.done = this.done.bind(this);
     this.viewModal = this.viewModal.bind(this);
+    this.onTimeChange = this.onTimeChange.bind(this);
   }
 
   componentDidMount(){
@@ -47,11 +49,15 @@ class Planner extends React.Component {
     }
     this.props.onDone({
       maxDistance: this.state.maxDistance,
+      startTime: this.state.startTime,
       people: this.state.people,
       bars: this.state.bars,
       clubs: this.state.clubs,
-      startLocation: startLocation
+      startLocation: this.state.startLocation
     });
+  }
+  onTimeChange(time){
+    this.setState({startTime: time});
   }
   render() {
     function someFunction(){

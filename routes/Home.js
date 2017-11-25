@@ -46,7 +46,7 @@ class Home extends React.Component {
     pastRoutes.forEach((route, i)  => {
       routes.push(
         <Card key={i}>
-          <TouchableHighlight onPress={() => {
+          <TouchableHighlight underlayColor='#CCCCCC' onPress={() => {
               navigate('Router'), {markers: route.markers}}}>
             <View style={styles.route}>
               <Image style={styles.image} source={route.img}/>

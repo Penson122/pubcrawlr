@@ -32,6 +32,7 @@ class RouteSelection extends React.Component {
     const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + options.startLocation.location.latitude + ',' + options.startLocation.location.longitude + '&radius=' + radius + '&type=bar&key=' + GOOGLE_MAPS_API_KEY;
     options.startLocation.color = 'red';
     this.state = {
+      routeOptions: options,
       markers: [],
       selectedMarkers: [options.startLocation],
       startLocation: options.startLocation,
@@ -54,7 +55,16 @@ class RouteSelection extends React.Component {
     const {navigate} = this.props.navigation;
     const {state} = this.props.navigation;
     const options = state.params.options;
-    console.log('navigating to overview page...');
+    const endLocation = this.state.selectedMarkers[this.state.selectedMarkers.length - 1];
+    endLocation.color = 'blue';
+    const nextState = {
+      startLocation: this.state.startLocation,
+      polylines: this.state.polylines,
+      selectedMarkers: this.state.selectedMarkers,
+      routeOptions: this.state.routeOptions,
+      endLocation: this.state.selectedMarkers[this.state.selectedMarkers.length - 1]
+    }
+    navigate('Overview', {savedRoute: nextState});
   }
   componentDidMount(){
     getPubs(this.state.url).then(res => {
