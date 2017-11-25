@@ -8,7 +8,7 @@ class RouteInfo extends React.Component {
     return (
       <View>
       <View style={styles.container}>
-        <FontText style={styles.title}> Todd's Pub Crawl</FontText>
+        <FontText style={styles.title}>{"Todd's Pub Crawl"}</FontText>
       </View>
         <Card>
           <Text h2>Attendees: </Text>
