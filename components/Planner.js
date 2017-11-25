@@ -34,10 +34,12 @@ class Planner extends React.Component {
     this.onTimeChange = this.onTimeChange.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
     this.onDateTimeSelect = this.onDateTimeSelect.bind(this);
+    this.onDistanceChange = this.onDistanceChange.bind(this);
   }
 
   componentDidMount(){
-    const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + norwichLatLng.latitude + ',' + norwichLatLng.longitude + '&radius=' + this.state.maxDistance + '&type=bar&key=' + GOOGLE_MAPS_API_KEY;
+    const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${norwichLatLng.latitude},${norwichLatLng.longitude}&radius=${this.state.maxDistance}&type=bar&key=${GOOGLE_MAPS_API_KEY}`;
+    console.log(url);
     getPubs(url).then(res => {
       const bars = res.results.map(r => r.name);
       this.setState({barResults: res.results, barNames: bars});
@@ -81,6 +83,10 @@ class Planner extends React.Component {
     const time = datetime[1].substring(0,5);
     this.setState({datePickerVisible: false, startDate: date, startTime: time})
   }
+  onDistanceChange(val){
+    console.log(val);
+    this.setState({maxDistance: val});
+  }
   render() {
     return (
       <Card>
@@ -113,7 +119,7 @@ class Planner extends React.Component {
               minimumValue={350}
               maximumValue={1000}
               value={this.state.maxDistance}
-              onValueChange={val => this.setState({ maxDistance: val })}
+              onValueChange={this.onDistanceChange}
             />
           </View>
           <FontText style={styles.text}>{this.state.maxDistance} meters</FontText>
