@@ -9,10 +9,13 @@ import RouteImage1 from '../img/route1.jpg';
 import RouteImage2 from '../img/route2.jpg';
 import RouteImage3 from '../img/route3.jpg';
 
+const bobsRoute = require('./bobsRoute');
+
 const pastRoutes = [
   {
     name: "Bob's Bday Bash",
     markers: [],
+    savedRoute: bobsRoute,
     venues: 5,
     miles: 2,
     daysAway: 5,
@@ -47,7 +50,7 @@ class Home extends React.Component {
       routes.push(
         <Card key={i}>
           <TouchableHighlight underlayColor='#CCCCCC' onPress={() => {
-              navigate('Router'), {markers: route.markers}}}>
+              navigate('Overview', {savedRoute: route.savedRoute})}}>
             <View style={styles.route}>
               <Image style={styles.image} source={route.img}/>
               <View style={{paddingTop: 10, paddingBottom: 20, justifyContent: 'space-around'}}>

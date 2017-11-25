@@ -12,7 +12,9 @@ class Overview extends React.Component {
     const {state} = props.navigation;
     const savedRoute = state.params.savedRoute;
     const options = savedRoute.routeOptions;
+    console.log(options);
     this.state = {
+      name: options.name,
       people: options.people,
       startTime: options.startTime,
       startLocation: savedRoute.startLocation,
@@ -28,6 +30,8 @@ class Overview extends React.Component {
       <View style={{justifyContent: 'space-between', alignItems: 'stretch'}}>
         <View style={{paddingBottom: 50}}>
           <RouteInfo
+            totalDistance={this.state.totalDistance}
+            name={this.state.name}
             attendees={this.state.people}
             startTime={this.state.startTime}
             endLocation={this.state.endLocation.name}

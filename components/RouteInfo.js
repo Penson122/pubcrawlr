@@ -7,7 +7,7 @@ const RouteInfo = ({name, attendees, startDate, startTime, startLocation, endLoc
     return (
       <View>
       <View style={styles.container}>
-        <FontText style={styles.title}>{name}</FontText>
+        <FontText bold style={styles.title}>{name}</FontText>
       </View>
         <Card>
           <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
