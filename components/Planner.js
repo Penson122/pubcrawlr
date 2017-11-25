@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, StyleSheet, View, Modal, ScrollView, TouchableOpacity } from 'react-native';
 import { FormInput, Card, Button, Slider, CheckBox } from 'react-native-elements';
+import DateTimePicker from 'react-native-modal-datetime-picker';
 import { getPubs, norwichLatLng } from '../routes/RouteSelection';
 import FontText from '../components/FontText';
 import {GOOGLE_MAPS_API_KEY} from '../constants';
@@ -20,16 +21,19 @@ class Planner extends React.Component {
       bars: true,
       clubs: false,
       startLocation: undefined,
+      startDate: '',
       startTime: '',
       barResults: [],
       barNames: [],
       modalVisible: false,
+      datePickerVisible: false,
       name: ''
     }
     this.done = this.done.bind(this);
     this.viewModal = this.viewModal.bind(this);
     this.onTimeChange = this.onTimeChange.bind(this);
     this.onNameChange = this.onNameChange.bind(this);
+    this.onDateTimeSelect = this.onDateTimeSelect.bind(this);
   }
 
   componentDidMount(){
@@ -54,6 +58,7 @@ class Planner extends React.Component {
     this.props.onDone({
       maxDistance: this.state.maxDistance,
       startTime: this.state.startTime,
+      startDate: this.state.startDate,
       people: this.state.people,
       bars: this.state.bars,
       clubs: this.state.clubs,
@@ -67,10 +72,16 @@ class Planner extends React.Component {
   onNameChange(name){
     this.setState({name: name})
   }
+  togglePicker(toggle){
+    this.setState({datePickerVisible: toggle});
+  }
+  onDateTimeSelect(evt){
+    const datetime = evt.toISOString().split('T');
+    const date = datetime[0];
+    const time = datetime[1].substring(0,5);
+    this.setState({datePickerVisible: false, startDate: date, startTime: time})
+  }
   render() {
-    function someFunction(){
-      // Input for form
-    }
     return (
       <Card>
         <ScrollView>
@@ -91,8 +102,7 @@ class Planner extends React.Component {
           <FontText style={styles.text}>{this.state.people}</FontText>
           <Text>{"\n"}</Text>
 
-          <FontText bold style={styles.text}>Start Time: </FontText>
-          <FormInput onChangeText={this.onTimeChange}/>
+          <Button raised backgroundColor='#338f40' title='When to start?' onPress={() => this.togglePicker(true)} />
           <Text>{"\n"}</Text>
 
           <FontText bold style={styles.text}>Max walking distance: </FontText>
@@ -122,6 +132,12 @@ class Planner extends React.Component {
             <FontText bold style={{textAlign: 'center', fontSize: 20}}>{this.state.startLocation.name}</FontText> : null}
           {this.state.startLocation ? <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Find my route!' onPress={this.done} /> : null}
         </ScrollView>
+        <DateTimePicker
+          isVisible={this.state.datePickerVisible}
+          mode='datetime'
+          onConfirm={this.onDateTimeSelect}
+          onCancel={() => this.togglePicker(false)}
+        />
       </Card>
     );
   }

@@ -16,6 +16,7 @@ class Overview extends React.Component {
       name: options.name,
       people: options.people,
       startTime: options.startTime,
+      startDate: options.startDate,
       startLocation: savedRoute.startLocation,
       endLocation: savedRoute.endLocation,
       totalDistance: options.maxDistance,
@@ -58,6 +59,7 @@ class Overview extends React.Component {
             name={this.state.name}
             attendees={this.state.people}
             startTime={this.state.startTime}
+            startDate={this.state.startDate}
             endLocation={this.state.endLocation.name}
             startLocation={this.state.startLocation.name}
           />
@@ -80,8 +82,8 @@ class Overview extends React.Component {
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'flex-end',
-    width: 400,
-    height: 400,
+    width: '100%',
+    height: '40%',
   },
 })
 

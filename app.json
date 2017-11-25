@@ -2,6 +2,7 @@
   "expo": {
     "sdkVersion": "22.0.0",
     "icon": "./logo.png",
+    "privacy": "unlisted",
     "loading": {
       "icon": "./logo.png",
       "backgroundColor": "#388E44"

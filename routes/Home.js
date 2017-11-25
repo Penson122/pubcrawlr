@@ -17,7 +17,7 @@ const pastRoutes = [
     markers: [],
     savedRoute: bobsRoute,
     venues: 5,
-    miles: 2,
+    miles: 500,
     daysAway: 5,
     img: RouteImage1
   }, {
@@ -25,16 +25,9 @@ const pastRoutes = [
     markers: [],
     savedRoute: johnsRoute,
     venues: 5,
-    miles: 2,
+    miles: 500,
     daysAway: 5,
     img: RouteImage2
-  }, {
-    name: "Todd's First Crawl",
-    markers: [],
-    venues: 5,
-    miles: 2,
-    daysAway: 5,
-    img: RouteImage3
   }
 ]
 
@@ -68,7 +61,7 @@ class Home extends React.Component {
                 <FontText style={{fontSize: 20}} bold>{route.name}</FontText>
                 <View>
                   <FontText style={styles.text}>{route.venues} venues</FontText>
-                  <FontText style={styles.text}>{route.miles} miles</FontText>
+                  <FontText style={styles.text}>{route.miles} meters</FontText>
                   <FontText style={styles.text} bold>{route.daysAway} days away</FontText>
                 </View>
               </View>
@@ -81,15 +74,17 @@ class Home extends React.Component {
     return (
       <View style={styles.container}>
         <FontText style={styles.title} bold>Your crawls</FontText>
-        <ScrollView>{routes}</ScrollView>
-        <Button
-          title="New Crawl"
-          onPress={() =>
-            navigate('Plan')
-          }
-          color="#388E44"
-          style={{paddingTop: 8, paddingBottom: 8}}
-        />
+        <ScrollView>
+          {routes}
+          <Button
+            title="New Crawl"
+            onPress={() =>
+              navigate('Plan')
+            }
+            color="#388E44"
+            style={{paddingTop: 8, paddingBottom: 8}}
+          />
+        </ScrollView>
       </View>
     )
   }
