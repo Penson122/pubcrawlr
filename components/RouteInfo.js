@@ -19,7 +19,7 @@ const RouteInfo = ({name, attendees, startDate, startTime, startLocation, endLoc
             <View>
               <FontText style={{fontSize: 16}}>Start: <FontText bold>{startLocation}</FontText></FontText>
               <FontText style={{fontSize: 16}}>End: <FontText bold>{endLocation}</FontText></FontText>
-              <FontText style={{fontSize: 16}}>Distance: <FontText bold>{totalDistance}</FontText></FontText>
+              <FontText style={{fontSize: 16}}>Distance: <FontText bold>{totalDistance}</FontText>m</FontText>
             </View>
             {<View></View>}
           </View>

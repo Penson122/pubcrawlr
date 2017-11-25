@@ -64,10 +64,10 @@ class Overview extends React.Component {
         </View>
         <View style={styles.container}>
           <Map addButton={false}
-          initialRegion={norwichLatLng}
-          markers={this.state.markers}
-          polylines={this.state.polylines}
-          style={styles.container}/>
+            initialRegion={norwichLatLng}
+            markers={this.state.markers}
+            polylines={this.state.polylines}
+            style={styles.container}/>
         </View>
         <View>
           <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Save route!' onPress={this.done} />
