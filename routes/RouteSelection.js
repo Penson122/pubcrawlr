@@ -54,14 +54,15 @@ class RouteSelection extends React.Component {
   onDone(){
     const {navigate} = this.props.navigation;
     const {state} = this.props.navigation;
-    const options = state.params.options;
     const endLocation = this.state.selectedMarkers[this.state.selectedMarkers.length - 1];
     endLocation.color = 'blue';
+    const options = Object.assign({}, this.state.routeOptions);
+    options.saveable = true;
     const nextState = {
       startLocation: this.state.startLocation,
       polylines: this.state.polylines,
       selectedMarkers: this.state.selectedMarkers,
-      routeOptions: this.state.routeOptions,
+      routeOptions: options,
       endLocation: this.state.selectedMarkers[this.state.selectedMarkers.length - 1]
     }
     navigate('Overview', {savedRoute: nextState});

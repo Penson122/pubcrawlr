@@ -13,6 +13,7 @@ class Overview extends React.Component {
     const savedRoute = state.params.savedRoute;
     const options = savedRoute.routeOptions;
     this.state = {
+      saveable: options.saveable,
       name: options.name,
       people: options.people,
       startTime: options.startTime,
@@ -72,7 +73,7 @@ class Overview extends React.Component {
             style={styles.container}/>
         </View>
         <View>
-          <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Save route!' onPress={this.done} />
+          {this.state.saveable ? <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Save route!' onPress={this.done} /> : null}
         </View>
       </View>
     );

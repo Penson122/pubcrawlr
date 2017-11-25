@@ -54,6 +54,7 @@ class Home extends React.Component {
       routes.push(
         <Card key={i}>
           <TouchableHighlight underlayColor='#CCCCCC' onPress={() => {
+              route.savedRoute.routeOptions.saveable = false;
               navigate('Overview', {savedRoute: route.savedRoute})}}>
             <View style={styles.route}>
               <Image style={styles.image} source={route.img}/>
