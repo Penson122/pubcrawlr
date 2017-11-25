@@ -40,6 +40,16 @@ const pastRoutes = [
 
 class Home extends React.Component {
 
+  constructor(props){
+    super(props);
+    const {state} = props.navigation;
+    if(state.params){
+      const newRoute = state.params.newRoute;
+      newRoute.img = RouteImage3;
+      pastRoutes = [newRoute, ...pastRoutes];
+    }
+  }
+
   static navigationOptions = {
     title: 'Your Routes',
   };

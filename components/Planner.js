@@ -23,11 +23,13 @@ class Planner extends React.Component {
       startTime: '',
       barResults: [],
       barNames: [],
-      modalVisible: false
+      modalVisible: false,
+      name: ''
     }
     this.done = this.done.bind(this);
     this.viewModal = this.viewModal.bind(this);
     this.onTimeChange = this.onTimeChange.bind(this);
+    this.onNameChange = this.onNameChange.bind(this);
   }
 
   componentDidMount(){
@@ -55,11 +57,15 @@ class Planner extends React.Component {
       people: this.state.people,
       bars: this.state.bars,
       clubs: this.state.clubs,
-      startLocation: this.state.startLocation
+      startLocation: this.state.startLocation,
+      name: this.state.name
     });
   }
   onTimeChange(time){
     this.setState({startTime: time});
+  }
+  onNameChange(name){
+    this.setState({name: name})
   }
   render() {
     function someFunction(){
@@ -68,6 +74,9 @@ class Planner extends React.Component {
     return (
       <Card>
         <ScrollView>
+          <FontText h3 style={styles.text}>Name</FontText>
+          <FormInput onChangeText={this.onNameChange}/>
+          <Text>{"\n"}</Text>
           <FontText bold style={styles.text}>How many people? </FontText>
           <View style={{paddingLeft: 16}}>
             <Slider
@@ -83,7 +92,7 @@ class Planner extends React.Component {
           <Text>{"\n"}</Text>
 
           <FontText bold style={styles.text}>Start Time: </FontText>
-          <FormInput onChangeText={someFunction}/>
+          <FormInput onChangeText={this.onTimeChange}/>
           <Text>{"\n"}</Text>
 
           <FontText bold style={styles.text}>Max walking distance: </FontText>
@@ -110,7 +119,7 @@ class Planner extends React.Component {
           />
           <SelectStartLocation bars={this.state.barResults} visible={this.state.modalVisible} onClose={this.viewModal}/>
           {this.state.startLocation ?
-            <FontText bold style={styles.text}>{this.state.startLocation.name}</FontText> : null}
+            <FontText bold style={{textAlign: 'center', fontSize: 20}}>{this.state.startLocation.name}</FontText> : null}
           {this.state.startLocation ? <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Find my route!' onPress={this.done} /> : null}
         </ScrollView>
       </Card>
