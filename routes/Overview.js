@@ -10,7 +10,7 @@ class Overview extends React.Component {
   render(){
     return (
       <View>
-      <RouteInfo />
+      <RouteInfo/>
         <View>
           <Map addButton={true} initialRegion={norwichLatLng} markers={[]}/>
         </View>
