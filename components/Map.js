@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Button, Platform } from 'react-native'
 import { GOOGLE_DIRECTIONS_API_KEY } from '../constants';
 import MapViewDirections from './MapViewDirections';
 import ActionButton from './ActionButton'
