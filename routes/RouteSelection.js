@@ -6,9 +6,9 @@ import {GOOGLE_MAPS_API_KEY} from '../constants';
 
 import Map from '../components/Map';
 
-const norwichLatLng = {latitude: 52.630886, longitude: 1.297355};
+export const norwichLatLng = {latitude: 52.630886, longitude: 1.297355};
 
-const getPubs = (url) => {
+export const getPubs = (url) => {
   return fetch(url)
     .then((response) => response.json())
     .then((responseJson) => {
@@ -26,26 +26,45 @@ class RouteSelection extends React.Component {
   };
   constructor(props){
     super(props);
-    const radius = this.props.radius ? this.props.radius : 500;
-    const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + norwichLatLng.latitude + ',' + norwichLatLng.longitude + '&radius=' + radius + '&type=bar&key=' + GOOGLE_MAPS_API_KEY;
+    const {state} = this.props.navigation;
+    const options = state.params.options;
+    const radius = options.maxDistance ? options.maxDistance : 500;
+    const url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + options.startLocation.location.latitude + ',' + options.startLocation.location.longitude + '&radius=' + radius + '&type=bar&key=' + GOOGLE_MAPS_API_KEY;
+    options.startLocation.color = 'red';
     this.state = {
+      routeOptions: options,
       markers: [],
-      selectedMarkers: [],
-      url: url
+      selectedMarkers: [options.startLocation],
+      startLocation: options.startLocation,
+      url: url,
+      polylines: [options.startLocation.location]
     }
     this.onMarkerPress = this.onMarkerPress.bind(this);
     this.onDone = this.onDone.bind(this);
   }
-  onMarkerPress(location){
+  onMarkerPress(marker){
       const selected = this.state.selectedMarkers.slice(0);
-      const found = selected.find(i => i.latitude === location.latitude && i.longitude === location.longitude)
+      const found = selected.find(i => i.name === marker.name);
       if(!found){
-        selected.push(location);
+        selected.push(marker);
       }
-      this.setState({selectedMarkers: selected});
+      const polylines = selected.map(s => s.location);
+      this.setState({selectedMarkers: selected, polylines: polylines});
   }
   onDone(){
-    console.log('done');
+    const {navigate} = this.props.navigation;
+    const {state} = this.props.navigation;
+    const options = state.params.options;
+    const endLocation = this.state.selectedMarkers[this.state.selectedMarkers.length - 1];
+    endLocation.color = 'blue';
+    const nextState = {
+      startLocation: this.state.startLocation,
+      polylines: this.state.polylines,
+      selectedMarkers: this.state.selectedMarkers,
+      routeOptions: this.state.routeOptions,
+      endLocation: this.state.selectedMarkers[this.state.selectedMarkers.length - 1]
+    }
+    navigate('Overview', {savedRoute: nextState});
   }
   componentDidMount(){
     getPubs(this.state.url).then(res => {
@@ -58,7 +77,8 @@ class RouteSelection extends React.Component {
         name: item.name,
         description: item.vicinity
         }));
-      this.setState({markers: bars});
+      const uniqueBars = bars.filter(i => i.name !== this.state.startLocation.name);
+      this.setState({markers: uniqueBars});
     });
   }
   render(){
@@ -67,10 +87,11 @@ class RouteSelection extends React.Component {
       <Map
         addButton={true}
         initialRegion={norwichLatLng}
+        startLocation={this.state.startLocation}
         markers={this.state.markers}
         onMarkerPress={this.onMarkerPress}
         onDone={this.onDone}
-        polylines={this.state.selectedMarkers}
+        polylines={this.state.polylines}
       />
     )
   }

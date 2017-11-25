@@ -7,7 +7,7 @@ import LoginImage from '../img/login-image.jpg';
 
 class Welcome extends React.Component {
   static navigationOptions = {
-    title: 'Welcome',
+    title: 'PubCrawlr',
   };
 
   render(){
@@ -24,23 +24,9 @@ class Welcome extends React.Component {
           color='#3b5998'
         />
         <Button
-          title="Your Crawls"
-          onPress = {() => 
-            navigate('Home')
-          }
-        />
-        <Button
-          title="Map"
-          style={{marginTop: '2em'}}
+          title="Overview"
           onPress={() =>
-            navigate('Router')
-          }
-        />
-        <Button
-          title="Home"
-          style={{marginTop: '2em'}}
-          onPress={() =>
-            navigate('Home')
+            navigate('Overview')
           }
         />
         <Button
@@ -73,9 +59,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#338F40',
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  font: {
-    fontFamily: 'sans-serif'
   }
 })
 

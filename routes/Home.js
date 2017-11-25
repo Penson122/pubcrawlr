@@ -11,14 +11,14 @@ import RouteImage3 from '../img/route3.jpg';
 
 const pastRoutes = [
   {
-    name: "Bob's Birthday Bash",
+    name: "Bob's Bday Bash",
     markers: [],
     venues: 5,
     miles: 2,
     daysAway: 5,
     img: RouteImage1
   }, {
-    name: "John's Big Night Out",
+    name: "John's Stag Do",
     markers: [],
     venues: 5,
     miles: 2,
