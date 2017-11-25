@@ -12,7 +12,7 @@ class Overview extends React.Component {
     const {state} = props.navigation;
     const savedRoute = state.params.savedRoute;
     const options = savedRoute.routeOptions;
-    console.log(options);
+    console.log(JSON.stringify(savedRoute));
     this.state = {
       name: options.name,
       people: options.people,

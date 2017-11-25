@@ -10,7 +10,7 @@ import RouteImage2 from '../img/route2.jpg';
 import RouteImage3 from '../img/route3.jpg';
 
 const bobsRoute = require('./bobsRoute');
-
+const johnsRoute = require('./johnsStagDo');
 const pastRoutes = [
   {
     name: "Bob's Bday Bash",
@@ -23,6 +23,7 @@ const pastRoutes = [
   }, {
     name: "John's Stag Do",
     markers: [],
+    savedRoute: johnsRoute,
     venues: 5,
     miles: 2,
     daysAway: 5,
