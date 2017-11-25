@@ -35,11 +35,14 @@ class Map extends React.Component {
             latitudeDelta: 0.02,
             longitudeDelta: 0.02,
           }}
+          ref="map"
         >
         {this.props.startLocation
           ? <MapView.Marker
             coordinate={this.props.startLocation.location}
             pinColor={this.props.startLocation.color ? this.props.startLocation.color : 'green'}
+            style={{zIndex: 0}}
+            onPress={() => { this.refs.map.animateToViewingAngle(Math.random(), 0); }}               
             >
               <Tooltip
                 name={this.props.startLocation.name}
@@ -53,6 +56,8 @@ class Map extends React.Component {
           <MapView.Marker key={`map_${i}`}
             coordinate={marker.location}
             pinColor={marker.color ? marker.color : 'green'}
+            style={{zIndex: 0}} 
+            onPress={() => { this.refs.map.animateToViewingAngle(Math.random(), 0); }}               
           >
             <Tooltip name={marker.name} description={marker.description} addButton={this.props.addButton} onPress={() => this.props.onMarkerPress(marker)}/>
           </MapView.Marker>);
@@ -80,7 +85,7 @@ class Map extends React.Component {
 
 const Tooltip = ({name, description, onPress, addButton}) => {
   return (
-    <MapView.Callout onPress={() => Platform.OS !== "ios" ? onPress() : null}>
+    <MapView.Callout onPress={() => Platform.OS !== "ios" ? onPress() : null} style={{zIndex: 999}}>
     <View style={{padding: 10}}>
       <View>
         <Text>{name}</Text>

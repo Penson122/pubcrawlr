@@ -13,7 +13,7 @@ const bobsRoute = require('./bobsRoute');
 const johnsRoute = require('./johnsStagDo');
 const pastRoutes = [
   {
-    name: "Bob's Bday Bash",
+    name: "Wayne's Bday",
     markers: [],
     savedRoute: bobsRoute,
     venues: 5,
@@ -21,7 +21,7 @@ const pastRoutes = [
     daysAway: 5,
     img: RouteImage1
   }, {
-    name: "John's Stag Do",
+    name: "Juliana's HenDo",
     markers: [],
     savedRoute: johnsRoute,
     venues: 5,
