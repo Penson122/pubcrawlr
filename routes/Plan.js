@@ -1,15 +1,19 @@
 import React from 'react';
 
-import { Text } from 'react-native';
+import Planner from '../components/Planner';
 
 class Plan extends React.Component {
-  static navigationOptions = {
-    title: 'Plan your route',
-  };
-  render(){
+  constructor(props){
+    super(props);
+    this.onDone = this.onDone.bind(this);
+  }
+  onDone(params){
     const { navigate } = this.props.navigation;
+    navigate('Router', {options: params});
+  }
+  render(){
     return (
-      <Text>Plan!</Text>
+      <Planner onDone={this.onDone}/>
     )
   }
 };
