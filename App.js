@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import HeaderImage from './img/pubcrawlr.png';
 import Home from './routes/Home';
-import Login from './routes/Login';
 import Plan from './routes/Plan';
 import Welcome from './routes/Welcome';
 import RouteSelection from './routes/RouteSelection';
@@ -12,7 +11,6 @@ import Overview from './routes/Overview';
 
 const BasicApp = StackNavigator({
   Main: {screen: Welcome},
-  Login: {screen: Login},
   Plan: {screen: Plan},
   Home: {screen: Home},
   Router: {screen: RouteSelection},
