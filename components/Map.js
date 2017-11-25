@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, Button, Platform } from 'react-native'
 import { GOOGLE_DIRECTIONS_API_KEY } from '../constants';
 import MapViewDirections from './MapViewDirections';
 import ActionButton from './ActionButton'
@@ -80,14 +80,14 @@ class Map extends React.Component {
 
 const Tooltip = ({name, description, onPress, addButton}) => {
   return (
-    <MapView.Callout style={{zIndex: 100}}>
-    <View>
+    <MapView.Callout onPress={() => Platform.OS !== "ios" ? onPress() : null}>
+    <View style={{padding: 10}}>
       <View>
         <Text>{name}</Text>
       </View>
       <Text>{description}</Text>
       <View>
-        {addButton === true ? <ActionButton size={18} color='green' onPress={onPress} /> : null}
+        {(addButton === true && Platform.OS === "ios") ? <ActionButton size={15} color='#338f40' onPress={onPress} style={{zIndex: 100}}/> : null}
       </View>
     </View>
     </MapView.Callout>

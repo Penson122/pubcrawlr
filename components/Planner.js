@@ -2,10 +2,12 @@ import React from 'react';
 import { Text, StyleSheet, View, Modal, ScrollView, TouchableOpacity } from 'react-native';
 import { FormInput, Card, Button, Slider, CheckBox } from 'react-native-elements';
 import { getPubs, norwichLatLng } from '../routes/RouteSelection';
+import FontText from '../components/FontText';
 import {GOOGLE_MAPS_API_KEY} from '../constants';
 const styles = StyleSheet.create({
   text: {
     paddingLeft: 20,
+    fontSize: 16
   },
 });
 
@@ -65,8 +67,9 @@ class Planner extends React.Component {
     }
     return (
       <Card>
-          <Text h3 style={styles.text}>How many people? </Text>
-          <View style={styles.text}>
+        <ScrollView>
+          <FontText bold style={styles.text}>How many people? </FontText>
+          <View style={{paddingLeft: 16}}>
             <Slider
               style={{ width: 300 }}
               step={1}
@@ -76,15 +79,15 @@ class Planner extends React.Component {
               onValueChange={val => this.setState({ people: val })}
             />
           </View>
-          <Text style={styles.text}>{this.state.people}</Text>
+          <FontText style={styles.text}>{this.state.people}</FontText>
           <Text>{"\n"}</Text>
 
-          <Text h3 style={styles.text}>Start Time: </Text>
+          <FontText bold style={styles.text}>Start Time: </FontText>
           <FormInput onChangeText={someFunction}/>
           <Text>{"\n"}</Text>
 
-          <Text h3 style={styles.text}>Max walking distance: </Text>
-          <View style={styles.text}>
+          <FontText bold style={styles.text}>Max walking distance: </FontText>
+          <View style={{paddingLeft: 16}}>
             <Slider
               style={{width: 300}}
               step={1}
@@ -94,20 +97,22 @@ class Planner extends React.Component {
               onValueChange={val => this.setState({ maxDistance: val })}
             />
           </View>
-          <Text style={styles.text}>{this.state.maxDistance} meters</Text>
+          <FontText style={styles.text}>{this.state.maxDistance} meters</FontText>
           <Text>{"\n"}</Text>
 
-          <Text h3 style={styles.text}>Filter: </Text>
+          <FontText bold style={styles.text}>Filter: </FontText>
           <CheckBox center title='Bars' checkedIcon='dot-circle-o' uncheckedIcon='circle-o' checked={this.state.bars} />
           <CheckBox center title='Clubs' checkedIcon='dot-circle-o' uncheckedIcon='circle-o' checked={this.state.clubs}  />
           <Text>{"\n"}</Text>
           <Button
-            title='Select Start Location'
+            title='Select Start Location      >'
             onPress={() => this.viewModal(true)}
           />
           <SelectStartLocation bars={this.state.barResults} visible={this.state.modalVisible} onClose={this.viewModal}/>
-          {this.state.startLocation ? <Text h3 style={styles.text}>{this.state.startLocation.name}</Text> : null}
+          {this.state.startLocation ?
+            <FontText bold style={styles.text}>{this.state.startLocation.name}</FontText> : null}
           {this.state.startLocation ? <Button raised backgroundColor='#338f40' icon={{name: 'check'}} title='Find my route!' onPress={this.done} /> : null}
+        </ScrollView>
       </Card>
     );
   }
@@ -117,19 +122,20 @@ const SelectStartLocation = ({ bars, visible, onClose }) => {
   const barText = bars.map((b, i) => {
     return (
     <TouchableOpacity key={i} onPress={() => onClose(false, b)}>
-      <Text style={{paddingTop: '7%'}} h3 color='black'>{b.name}</Text>
+      <View style={{borderTopWidth: 4, borderBottomWidth: 4, borderColor: '#EEEEEE', padding: 6}}>
+        <FontText style={{marginLeft: 8, fontSize: 16}} bold>{b.name}</FontText>
+      </View>
     </TouchableOpacity>
     );
   });
   return (
     <View style={{paddingTop: 22}}>
       <Modal
-        animationType="slide"
         transparent={false}
         visible={visible}
         style={{marginLeft: '2%'}}
         onRequestClose={() => {onClose(false)}}
-        >
+      >
         <ScrollView>
           {barText}
         </ScrollView>
