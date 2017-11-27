@@ -1,0 +1,244 @@
+{
+  "startLocation": {
+    "geometry": {
+      "location": {
+        "lat": 52.62988190000001,
+        "lng": 1.2925082
+      },
+      "viewport": {
+        "northeast": {
+          "lat": 52.6312085302915,
+          "lng": 1.293844830291502
+        },
+        "southwest": {
+          "lat": 52.6285105697085,
+          "lng": 1.291146869708498
+        }
+      }
+    },
+    "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png",
+    "id": "dadb7e45da984dbe6f4eb36f26935520f74fdcff",
+    "name": "The Belgian Monk",
+    "opening_hours": {
+      "open_now": true,
+      "weekday_text": []
+    },
+    "photos": [
+      {
+        "height": 2988,
+        "html_attributions": [
+          "<a href=\"https://maps.google.com/maps/contrib/107920293165253848323/photos\">Fufu Fang</a>"
+        ],
+        "photo_reference": "CmRaAAAAAFYb1VMqBvFRIgpDaAy17uXtDB57IgRHdOJASnIhsdWqhmEDyPFh-0_45mrIg1rokiMC-BJ8rTuo2-F8bKNm9JlKbLTilrI-L1pRE3OfoMoLsav4fT76w2BDMRzP5eZFEhA9ai4Pjwj_wRS08rocN-6AGhQmSqM4NoroR3aQ0THFpk4NHi3haA",
+        "width": 3984
+      }
+    ],
+    "place_id": "ChIJjRkiM-fj2UcRbFYpUh_VGyk",
+    "rating": 4.5,
+    "reference": "CmRRAAAA6oKjDRWXNbthXZZRCkMS0l2iTs4cm0Heeylcnom4ckhH7n7l3SWKE513ppEw7HEDcEWN0Lwlt5BbLcHs7lFlCXKyGOZnI52wd8LpWeekDN9Xr8ZvBLZOItPOz2wYQc9sEhDojOTMOgfVO043EG9DU_JEGhRbgMOCvs4NPsiNajbXBv7TkL8KpA",
+    "scope": "GOOGLE",
+    "types": [
+      "bar",
+      "restaurant",
+      "food",
+      "point_of_interest",
+      "establishment"
+    ],
+    "vicinity": "7 Pottergate, Norwich",
+    "location": {
+      "latitude": 52.62988190000001,
+      "longitude": 1.2925082
+    },
+    "color": "red"
+  },
+  "polylines": [
+    {
+      "latitude": 52.62988190000001,
+      "longitude": 1.2925082
+    },
+    {
+      "latitude": 52.6298567,
+      "longitude": 1.2947963
+    },
+    {
+      "latitude": 52.62735250000001,
+      "longitude": 1.2954893
+    },
+    {
+      "latitude": 52.6268053,
+      "longitude": 1.2952464
+    },
+    {
+      "latitude": 52.62956459999999,
+      "longitude": 1.2994359
+    },
+    {
+      "latitude": 52.63015799999999,
+      "longitude": 1.2977951
+    }
+  ],
+  "selectedMarkers": [
+    {
+      "geometry": {
+        "location": {
+          "lat": 52.62988190000001,
+          "lng": 1.2925082
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6312085302915,
+            "lng": 1.293844830291502
+          },
+          "southwest": {
+            "lat": 52.6285105697085,
+            "lng": 1.291146869708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png",
+      "id": "dadb7e45da984dbe6f4eb36f26935520f74fdcff",
+      "name": "The Belgian Monk",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107920293165253848323/photos\">Fufu Fang</a>"
+          ],
+          "photo_reference": "CmRaAAAAAFYb1VMqBvFRIgpDaAy17uXtDB57IgRHdOJASnIhsdWqhmEDyPFh-0_45mrIg1rokiMC-BJ8rTuo2-F8bKNm9JlKbLTilrI-L1pRE3OfoMoLsav4fT76w2BDMRzP5eZFEhA9ai4Pjwj_wRS08rocN-6AGhQmSqM4NoroR3aQ0THFpk4NHi3haA",
+          "width": 3984
+        }
+      ],
+      "place_id": "ChIJjRkiM-fj2UcRbFYpUh_VGyk",
+      "rating": 4.5,
+      "reference": "CmRRAAAA6oKjDRWXNbthXZZRCkMS0l2iTs4cm0Heeylcnom4ckhH7n7l3SWKE513ppEw7HEDcEWN0Lwlt5BbLcHs7lFlCXKyGOZnI52wd8LpWeekDN9Xr8ZvBLZOItPOz2wYQc9sEhDojOTMOgfVO043EG9DU_JEGhRbgMOCvs4NPsiNajbXBv7TkL8KpA",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "7 Pottergate, Norwich",
+      "location": {
+        "latitude": 52.62988190000001,
+        "longitude": 1.2925082
+      },
+      "color": "red"
+    },
+    {
+      "location": {
+        "latitude": 52.6298567,
+        "longitude": 1.2947963
+      },
+      "name": "Frank's Bar",
+      "description": "19 Bedford Street, Norwich"
+    },
+    {
+      "location": {
+        "latitude": 52.62735250000001,
+        "longitude": 1.2954893
+      },
+      "name": "The Bell Hotel",
+      "description": "5 Orford Hill, Norwich"
+    },
+    {
+      "location": {
+        "latitude": 52.6268053,
+        "longitude": 1.2952464
+      },
+      "name": "Murderers Pub",
+      "description": "2 - 8 Timber Hill, Norwich"
+    },
+    {
+      "location": {
+        "latitude": 52.62956459999999,
+        "longitude": 1.2994359
+      },
+      "name": "Prince Of Wales",
+      "description": "8-14 Prince of Wales Road, Norwich"
+    },
+    {
+      "location": {
+        "latitude": 52.63015799999999,
+        "longitude": 1.2977951
+      },
+      "name": "Noir Company Norwich Ltd",
+      "description": "1 Queen Street, Norwich",
+      "color": "blue"
+    }
+  ],
+  "routeOptions": {
+    "name": "Juliana's HenDo",
+    "maxDistance": 1000,
+    "startTime": "20:00",
+    "people": 20,
+    "bars": true,
+    "clubs": false,
+    "startLocation": {
+      "geometry": {
+        "location": {
+          "lat": 52.62988190000001,
+          "lng": 1.2925082
+        },
+        "viewport": {
+          "northeast": {
+            "lat": 52.6312085302915,
+            "lng": 1.293844830291502
+          },
+          "southwest": {
+            "lat": 52.6285105697085,
+            "lng": 1.291146869708498
+          }
+        }
+      },
+      "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/bar-71.png",
+      "id": "dadb7e45da984dbe6f4eb36f26935520f74fdcff",
+      "name": "The Belgian Monk",
+      "opening_hours": {
+        "open_now": true,
+        "weekday_text": []
+      },
+      "photos": [
+        {
+          "height": 2988,
+          "html_attributions": [
+            "<a href=\"https://maps.google.com/maps/contrib/107920293165253848323/photos\">Fufu Fang</a>"
+          ],
+          "photo_reference": "CmRaAAAAAFYb1VMqBvFRIgpDaAy17uXtDB57IgRHdOJASnIhsdWqhmEDyPFh-0_45mrIg1rokiMC-BJ8rTuo2-F8bKNm9JlKbLTilrI-L1pRE3OfoMoLsav4fT76w2BDMRzP5eZFEhA9ai4Pjwj_wRS08rocN-6AGhQmSqM4NoroR3aQ0THFpk4NHi3haA",
+          "width": 3984
+        }
+      ],
+      "place_id": "ChIJjRkiM-fj2UcRbFYpUh_VGyk",
+      "rating": 4.5,
+      "reference": "CmRRAAAA6oKjDRWXNbthXZZRCkMS0l2iTs4cm0Heeylcnom4ckhH7n7l3SWKE513ppEw7HEDcEWN0Lwlt5BbLcHs7lFlCXKyGOZnI52wd8LpWeekDN9Xr8ZvBLZOItPOz2wYQc9sEhDojOTMOgfVO043EG9DU_JEGhRbgMOCvs4NPsiNajbXBv7TkL8KpA",
+      "scope": "GOOGLE",
+      "types": [
+        "bar",
+        "restaurant",
+        "food",
+        "point_of_interest",
+        "establishment"
+      ],
+      "vicinity": "7 Pottergate, Norwich",
+      "location": {
+        "latitude": 52.62988190000001,
+        "longitude": 1.2925082
+      },
+      "color": "red"
+    }
+  },
+  "endLocation": {
+    "location": {
+      "latitude": 52.63015799999999,
+      "longitude": 1.2977951
+    },
+    "name": "Noir Company Norwich Ltd",
+    "description": "1 Queen Street, Norwich",
+    "color": "blue"
+  }
+}
